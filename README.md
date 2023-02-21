@@ -61,3 +61,12 @@ curl --location 'https://{gateway-catalog}/api-jwt/val' \
     }
 }
 ```
+
+### 4.3 Response token expired
+```
+{
+    "code": "404",
+    "message": "Token expirado",
+    "msg": "JWT validation failed, because the JWT has expired at Tue Feb 21 2023 14:00:03 GMT-0300 (DST)."
+}
+```
