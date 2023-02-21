@@ -1,0 +1,88 @@
+{
+	"info": {
+		"_postman_id": "748a8f6c-cd3e-454c-8f1e-02bff5b3059e",
+		"name": "jwt",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3256611"
+	},
+	"item": [
+		{
+			"name": "gen",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-ibm-client-id",
+						"value": "5f9a9cf7a20a2155b473c4855d4e2236",
+						"type": "text"
+					},
+					{
+						"key": "iss-claim",
+						"value": "bank.com",
+						"type": "text"
+					},
+					{
+						"key": "aud-claim",
+						"value": "portal",
+						"type": "text"
+					},
+					{
+						"key": "subject-claim",
+						"value": "mirut123456",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://apiindev.itauchile.cl/develop/canales-digitales/api-jwt/gen",
+					"protocol": "https",
+					"host": [
+						"apiindev",
+						"itauchile",
+						"cl"
+					],
+					"path": [
+						"develop",
+						"canales-digitales",
+						"api-jwt",
+						"gen"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "val",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-ibm-client-id",
+						"value": "5f9a9cf7a20a2155b473c4855d4e2236",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJraWQiOiJoczI1Ni1rZXkiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJiYW5rLmNvbSIsInN1YiI6Im1pcnV0MTIzNDU2IiwiYXVkIjoicG9ydGFsIiwiZXhwIjoxNjc2OTk1MjQzLCJpYXQiOjE2NzY5OTUxODMsImJhbmsiOnsiY29kZSI6IjIwMCIsImRlc2NyaXB0aW9uIjoib2siLCJzZXJ2ZXJfY29kZSI6IjAiLCJzZXJ2ZXJfZGVzY3JpcHRpb24iOiJTdWNjZXNzIiwiZGF0YSI6eyJjbGllbnRfaWQiOiIxMjM0NTY3ODkiLCJjbGllbnRfdHlwZSI6IjEifX19.KgUFPLb-8hW_zzKznoI6m12iOZJtYIxm_x-T7x-Tk9g",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://apiindev.itauchile.cl/develop/canales-digitales/api-jwt/val",
+					"protocol": "https",
+					"host": [
+						"apiindev",
+						"itauchile",
+						"cl"
+					],
+					"path": [
+						"develop",
+						"canales-digitales",
+						"api-jwt",
+						"val"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
