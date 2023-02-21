@@ -31,6 +31,10 @@ curl --location 'https://{gateway-catalog}/api-jwt/gen' \
 }
 ```
 
+### 3.3 Estructura del JWT
+
+![api-connect-10-jwt-generate](jwt-generate.png)
+
 ## 4. Validate JWT
 
 ### 4.1 Request
