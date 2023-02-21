@@ -74,3 +74,67 @@ curl --location 'https://{gateway-catalog}/api-jwt/val' \
     "msg": "JWT validation failed, because the JWT has expired at Tue Feb 21 2023 14:00:03 GMT-0300 (DST)."
 }
 ```
+
+## 5. Generate JWT - Code
+
+![api-connect-10-flow](api-connect-10-flow.png)
+
+### 5.1 set-variable
+```
+- set-variable:
+	version: 2.0.0
+	title: set-variable
+	actions:
+	  - set: hs256-key
+		value: >-
+		  { "alg": "HS256", "kty": "oct", "use": "sig", "k":
+		  "o5yErLaE-dbgVpSw65Rq57OA9dHyaF66Q_Et5azPa-XUjbyP0w9iRWhR4kru09aFfQLXeIODIN4uhjElYKXt8n76jt0Pjkd2pqk4t9abRF6tnL19GV4pflfL6uvVKkP4weOh39tqHt4TmkBgF2P-gFhgssZpjwq6l82fz3dUhQ2nkzoLA_CnyDGLZLd7SZ1yv73uzfE2Ot813zmig8KTMEMWVcWSDvy61F06vs_6LURcq_IEEevUiubBxG5S2akNnWigfpbhWYjMI5M22FOCpdcDBt4L7K1-yHt95Siz0QUb0MNlT_X8F76wH7_A37GpKKJGqeaiNWmHkgWdE8QWDQ",
+		  "kid": "hs256-key" }
+		type: string
+	description: set
+```
+
+### 5.1 gatewayscript - generate private.claim
+```
+var apim = require('apim');
+
+var json_privateclaim = {
+	'bank': {
+		'code':'200',
+		'description':'ok',
+		'server_code':'0',
+		'server_description':'Success',
+		'data':{
+			'client_id':'123456789',
+			'client_type':'1'
+		}
+	}	
+};
+apim.setvariable('private.claim', json_privateclaim);
+```
+
+### 5.3 jwt-generate
+```
+- jwt-generate:
+	version: 2.0.0
+	title: jwt-generate
+	jwt: generated.jwt
+	iss-claim: request.headers.iss-claim
+	exp-claim: 60
+	aud-claim: request.headers.aud-claim
+	jws-jwk: hs256-key
+	jws-alg: HS256
+	sub-claim: request.headers.subject-claim
+	private-claims: private.claim
+```
+
+### 5.4 gatewayscript - generate response
+```
+var apim = require('apim');
+var json_output = {
+	'jwt': apim.getvariable('generated.jwt')
+};
+
+apim.output('application/json');
+session.output.write(json_output);
+```
