@@ -1,7 +1,5 @@
 # ibm-api-connect-10-jwt-generate-validate
 
-<img src=' ' />
-
 ![api-connect-10-flow](api-connect-10-flow.png)
 
 ## 1. Guide Generar JWT
