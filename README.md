@@ -75,7 +75,7 @@ curl --location 'https://{gateway-catalog}/api-jwt/val' \
 }
 ```
 
-## 5. Generate JWT - Code
+## 5. Generate JWT (/gen) - Code
 
 ![api-connect-10-flow](api-connect-10-flow.png)
 
@@ -139,7 +139,7 @@ apim.output('application/json');
 session.output.write(json_output);
 ```
 
-## 6. Validate JWT - Code
+## 6. Validate JWT (/val) - Code
 
 ![api-connect-10-flow](api-connect-10-flow.png)
 
