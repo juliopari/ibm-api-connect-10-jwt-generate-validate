@@ -33,7 +33,7 @@ curl --location 'https://{gateway-catalog}/api-jwt/gen' \
 
 ### 4.1 Request
 ```
-curl --location 'https://{gateway-catalog}/develop/canales-digitales/api-jwt/val' \
+curl --location 'https://{gateway-catalog}/api-jwt/val' \
 --header 'x-ibm-client-id: 123456789123456789123456789123456789' \
 --header 'Authorization: Bearer eyJraWQiOiJoczI1Ni1rZXkiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJiYW5rLmNvbSIsInN1YiI6Im1pcnV0MTIzNDU2IiwiYXVkIjoicG9ydGFsIiwiZXhwIjoxNjc2OTk4ODAzLCJpYXQiOjE2NzY5OTg3NDMsImJhbmsiOnsiY29kZSI6IjIwMCIsImRlc2NyaXB0aW9uIjoib2siLCJzZXJ2ZXJfY29kZSI6IjAiLCJzZXJ2ZXJfZGVzY3JpcHRpb24iOiJTdWNjZXNzIiwiZGF0YSI6eyJjbGllbnRfaWQiOiIxMjM0NTY3ODkiLCJjbGllbnRfdHlwZSI6IjEifX19._2rd4n-qsltGnz8rJmNkijV5HIaNQoaZdYD3864MLDE' \
 --header 'Cookie: __Host-GAPS=1:chwyB83VgqOkad5aogVgRzpgiYdgRQ:g1hXNcD6tP5CISW4'
