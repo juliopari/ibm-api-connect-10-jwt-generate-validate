@@ -1,5 +1,9 @@
 # ibm-api-connect-10-jwt-generate-validate
 
+<img src=' ' />
+
+![api-connect-10-flow](api-connect-10-flow.png)
+
 ## 1. Guide Generar JWT
 ```
 https://www.ibm.com/docs/en/api-connect/10.0.1.x?topic=SSMNED_v10/com.ibm.apic.apionprem.doc/tutorial_onprem_jwt_gen.htm
