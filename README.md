@@ -94,7 +94,7 @@ curl --location 'https://{gateway-catalog}/api-jwt/val' \
 	description: set
 ```
 
-### 5.1 gatewayscript - generate private.claim
+### 5.2 gatewayscript - generate private.claim
 ```
 var apim = require('apim');
 
@@ -134,6 +134,44 @@ var apim = require('apim');
 var json_output = {
 	'jwt': apim.getvariable('generated.jwt')
 };
+
+apim.output('application/json');
+session.output.write(json_output);
+```
+
+## 6. Validate JWT - Code
+
+![api-connect-10-flow](api-connect-10-flow.png)
+
+### 6.1 set-variable
+```
+- set-variable:
+	version: 2.0.0
+	title: set-variable
+	actions:
+	  - set: hs256-key
+		value: >-
+		  { "alg": "HS256", "kty": "oct", "use": "sig", "k":
+		  "o5yErLaE-dbgVpSw65Rq57OA9dHyaF66Q_Et5azPa-XUjbyP0w9iRWhR4kru09aFfQLXeIODIN4uhjElYKXt8n76jt0Pjkd2pqk4t9abRF6tnL19GV4pflfL6uvVKkP4weOh39tqHt4TmkBgF2P-gFhgssZpjwq6l82fz3dUhQ2nkzoLA_CnyDGLZLd7SZ1yv73uzfE2Ot813zmig8KTMEMWVcWSDvy61F06vs_6LURcq_IEEevUiubBxG5S2akNnWigfpbhWYjMI5M22FOCpdcDBt4L7K1-yHt95Siz0QUb0MNlT_X8F76wH7_A37GpKKJGqeaiNWmHkgWdE8QWDQ",
+		  "kid": "hs256-key" }
+		type: string
+	description: set
+```
+
+### 6.2 jwt-validate
+```
+- jwt-validate:
+	version: 2.0.0
+	title: jwt-validate
+	jwt: request.headers.authorization
+	output-claims: decoded.claims
+	jws-jwk: hs256-key
+```
+
+### 6.3 gatewayscript - generate response
+```
+var apim = require('apim');
+var json_output = apim.getvariable('decoded.claims');
 
 apim.output('application/json');
 session.output.write(json_output);
