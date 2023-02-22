@@ -176,3 +176,16 @@ var json_output = apim.getvariable('decoded.claims');
 apim.output('application/json');
 session.output.write(json_output);
 ```
+
+### 6.4 gatewayscript - catch error
+```
+var apim = require('apim');
+var json_output = {
+	'code': '404',
+	'message': 'Token no existe en cache',
+	'msg': apim.getvariable('jwt-validate.error-message')
+};
+
+apim.output('application/json');
+session.output.write(json_output);
+```
