@@ -176,8 +176,8 @@ var json_output = apim.getvariable('decoded.claims');
 apim.output('application/json');
 session.output.write(json_output);
 ```
+## 7. gatewayscript - catch error
 
-### 6.4 gatewayscript - catch error
 ```
 var apim = require('apim');
 var json_output = {
